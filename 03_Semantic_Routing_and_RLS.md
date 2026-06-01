@@ -16,6 +16,7 @@ We leverage foundational relational database security within the vector store. U
 *   Before the vector database returns semantic search results to the LLM context window, the RLS policy validates the querying user's Identity Provider (IdP) credentials.
 *   The system filters out any vector embeddings the user does not have explicit permission to view, ensuring 100% data isolation at the bare-metal database tier before the AI ever sees the data.
 
+```mermaid
 graph TD
     %% Styling
     classDef user fill:#f9f9f9,stroke:#333,stroke-width:2px;
@@ -37,3 +38,4 @@ graph TD
     
     RLS -->|Auth Validated| Data[Secure Vector Embeddings Retrieved]:::local
     RLS -->|Auth Failed| Deny[Internal Data Blocked]:::premium
+```
